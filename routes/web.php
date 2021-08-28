@@ -35,7 +35,7 @@ Route::get('crud/{var}/{category?}', function ($var, $category = null) {
     if($category){
         return "welcome to a $var, in the category: $category";
     }else{
-        return "welcome to a $var"
+        return "welcome to a $var";
     }
 });
 
