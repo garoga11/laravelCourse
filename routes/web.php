@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CursoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,27 +17,17 @@ use Illuminate\Support\Facades\Route;
 
 //ROUTES ARE READED FROM THE TOP TO THE BOTTOM
 
-Route::get('/', function () {
-    /*Return the welcome view when the route has
-    an slash */
-    return view('welcome');
-});
+//calling home controller from the route (/)
+Route::get('/', HomeController::class);
+//LARAVEL7 Route::get('/', 'HomeController');
 
-//Creating a route
-Route::get('crud', function(){
-    return "welcome to my first crud";
-});
+Route::get('crud', [CursoController::class, 'index']);
+//LARAVEL7 Route::get('crud', 'CursoController@index');
+
+Route::get('crud/create', [CursoController::class, 'create']);
 
 //creating a route using variables through the route
-Route::get('crud/{var}', function($var){
-    return "route with variable: $var";
-});
+Route::get('crud/{var}', [CursoController::class, 'show']);
 
-Route::get('crud/{var}/{category?}', function ($var, $category = null) {
-    if($category){
-        return "welcome to a $var, in the category: $category";
-    }else{
-        return "welcome to a $var";
-    }
-});
+
 
