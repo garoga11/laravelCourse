@@ -21,13 +21,13 @@ use App\Http\Controllers\CursoController;
 Route::get('/', HomeController::class);
 //LARAVEL7 Route::get('/', 'HomeController');
 
-Route::get('courses', [CursoController::class, 'index']);
+Route::get('courses', [CursoController::class, 'index'])->name('courses.index');
 //LARAVEL7 Route::get('crud', 'CursoController@index');
 
-Route::get('courses/create', [CursoController::class, 'create']);
+Route::get('courses/create', [CursoController::class, 'create'])->name('courses.create');
 
 //creating a route using variables through the route
-Route::get('courses/{var}', [CursoController::class, 'show']);
+Route::get('courses/{var}', [CursoController::class, 'show'])->name('courses.show');
 
 
 
