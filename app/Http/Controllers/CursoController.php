@@ -21,6 +21,13 @@ class CursoController extends Controller
 
     public function store(Request $request){
         //to see what is inside of the form  return $request->all();
+        //vqlidation for the form so the user cannot send null fields.
+        $request->validate([
+            'name'=> 'required',
+            'description' => 'required',
+            'category' => 'required'
+        ]);
+
         $course = new Course();
         $course->name = $request->name;
         $course->description = $request->description;
