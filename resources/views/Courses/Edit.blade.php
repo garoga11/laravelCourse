@@ -14,20 +14,46 @@
 
     <label>
         Name:<br>
-        <input type="text" name="name" value="{{$id->name}}"><br>
+        <input type="text" name="name" value="{{old('name', $id->name)}}"><br>
     </label>
+
+    @error('name')
+    <br>
+    <small>
+        *{{$message}}
+    </small>
+    <br>
+        
+    @enderror
 
     <label >
         Description:<br>
-        <textarea name="description"  rows="5" >{{$id->description}}</textarea><br>
+        <textarea name="description"  rows="5" >{{old('description', $id->description)}}</textarea><br>
     </label>
+
+    @error('description')
+    <br>
+    <small>
+        *{{$message}}
+    </small>
+    <br>
+        
+    @enderror
 
     <label >
         Category:<br>
-        <input type="text" name="category" value="{{$id->category}}"><br>
+        <input type="text" name="category" value="{{old('category', $id->category)}}"><br>
     </label>
-
+    @error('category')
     <br>
+    <small>
+        *{{$message}}
+    </small>
+    <br>
+        
+    @enderror
+    <br>
+
 
     <button type="submit">Submit</button>
 </form>
