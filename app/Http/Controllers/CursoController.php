@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use app\Http\Requests\StoreCourse;
 
 class CursoController extends Controller
 {
@@ -19,16 +20,13 @@ class CursoController extends Controller
         return view('Courses.Create');
     }
 
-    public function store(Request $request){
+    public function store(StoreCourse $request){
         //to see what is inside of the form  return $request->all();
         //vqlidation for the form so the user cannot send null fields.
-        $request->validate([
-            'name'=> 'required|max:10`',
-            'description' => 'required|min:10',
-            'category' => 'required'
-        ]);
+        
 
         $course = new Course();
+
         $course->name = $request->name;
         $course->description = $request->description;
         $course->category = $request->category;
