@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
-use app\Http\Requests\StoreCourse;
+use App\Http\Requests\StoreCourse;
 
 class CursoController extends Controller
 {
@@ -25,13 +25,7 @@ class CursoController extends Controller
         //vqlidation for the form so the user cannot send null fields.
         
 
-        $course = new Course();
-
-        $course->name = $request->name;
-        $course->description = $request->description;
-        $course->category = $request->category;
-
-        $course->save();
+        $course = Course::create($request->all());
 
         //we send the id through $course  and laravel understands it as $course->id
         return redirect()->route('courses.show', $course);
@@ -57,12 +51,7 @@ class CursoController extends Controller
             'category' => 'required'
         ]);
 
-
-        $course->name = $request->name;
-        $course->description = $request->description;
-        $course->category = $request->category;
-
-        $course->save();
+        $course->update($request->all());
 
         return redirect()->route('courses.show', $course);
     }
