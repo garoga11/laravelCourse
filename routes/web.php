@@ -17,11 +17,11 @@ use App\Http\Controllers\CursoController;
 
 //ROUTES ARE READED FROM THE TOP TO THE BOTTOM
 
-//calling home controller from the route (/)
+ //calling home controller from the route (/)
 Route::get('/', HomeController::class);
 //LARAVEL7 Route::get('/', 'HomeController');
 
-Route::get('courses', [CursoController::class, 'index'])->name('courses.index');
+/* Route::get('courses', [CursoController::class, 'index'])->name('courses.index');
 //LARAVEL7 Route::get('crud', 'CursoController@index');
 
 Route::get('courses/create', [CursoController::class, 'create'])->name('courses.create');
@@ -38,6 +38,8 @@ Route::get('courses/{course}/edit', [CursoController::class, 'edit'])->name('cou
 Route::put('courses/{course}', [CursoController::class, 'update'])->name('courses.update');
 
 //it will delete a register
-Route::delete('courses/{course}', [CursoController::class, 'destroy'])->name('courses.destroy');
+Route::delete('courses/{course}', [CursoController::class, 'destroy'])->name('courses.destroy');  */
+
+Route::resource('courses', CursoController::class);
 
 
