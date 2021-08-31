@@ -6,7 +6,7 @@
 
 <h1>Edit</h1>
 <br>
-<form action="{{route('courses.update', $id)}}" method="POST">
+<form action="{{route('courses.update', $course)}}" method="POST">
 
     @csrf
 
@@ -14,7 +14,7 @@
 
     <label>
         Name:<br>
-        <input type="text" name="name" value="{{old('name', $id->name)}}"><br>
+        <input type="text" name="name" value="{{old('name', $course->name)}}"><br>
     </label>
 
     @error('name')
@@ -28,7 +28,7 @@
 
     <label >
         Description:<br>
-        <textarea name="description"  rows="5" >{{old('description', $id->description)}}</textarea><br>
+        <textarea name="description"  rows="5" >{{old('description', $course->description)}}</textarea><br>
     </label>
 
     @error('description')
@@ -42,7 +42,7 @@
 
     <label >
         Category:<br>
-        <input type="text" name="category" value="{{old('category', $id->category)}}"><br>
+        <input type="text" name="category" value="{{old('category', $course->category)}}"><br>
     </label>
     @error('category')
     <br>
