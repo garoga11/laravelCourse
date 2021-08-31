@@ -29,12 +29,15 @@ Route::get('courses/create', [CursoController::class, 'create'])->name('courses.
 Route::post('courses', [CursoController::class, 'store'])->name('courses.store');
 
 //creating a route using variables through the route
-Route::get('courses/{var}', [CursoController::class, 'show'])->name('courses.show');
+Route::get('courses/{course}', [CursoController::class, 'show'])->name('courses.show');
 
 //edit route
-Route::get('courses/{id}/edit', [CursoController::class, 'edit'])->name('courses.edit');
+Route::get('courses/{course}/edit', [CursoController::class, 'edit'])->name('courses.edit');
 
 //edit form
 Route::put('courses/{course}', [CursoController::class, 'update'])->name('courses.update');
+
+//it will delete a register
+Route::delete('courses/{course}', [CursoController::class, 'destroy'])->name('courses.destroy');
 
 
