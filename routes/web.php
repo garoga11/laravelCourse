@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
-
+use App\Mail\contactanosMailable;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\MailNotify;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,5 +43,14 @@ Route::put('courses/{course}', [CursoController::class, 'update'])->name('course
 Route::delete('courses/{course}', [CursoController::class, 'destroy'])->name('courses.destroy');  */
 
 Route::resource('courses', CursoController::class);
+
+Route::view('nosotros', 'nosotros')->name('nosotros');
+
+Route::get('contact', function(){
+    $email = new contactanosMailable;
+
+    Mail::to('rojasgabriela901@gmail.com')->send($email);
+    return "Mensaje enviado";
+});
 
 
