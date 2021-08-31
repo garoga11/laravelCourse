@@ -9,5 +9,8 @@
 <body>
     <h1>Email</h1>
     <p>My first email</p>
+    <p><strong> Nombre:</strong>{{$contacto['name']}}</p>
+    <p><strong> Correo:</strong>{{$contacto['correo']}}</p>
+    <p><strong> Mensaje:</strong>{{$contacto['mensaje']}}</p>
 </body>
 </html>
