@@ -31,8 +31,8 @@ class CursoController extends Controller
         return redirect()->route('courses.show', $course);
     }
 
-    public function show( $course){
-        $course = Course::find($course);
+    public function show(Course $course){
+        //$course = Course::find($course);
         return view('Courses.Show', compact('course'));
         //compact returns: ['var' => $var]
     }
