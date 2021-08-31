@@ -3,9 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
-use App\Mail\contactanosMailable;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\MailNotify;
+use App\Http\Controllers\ContactanosController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,11 +45,9 @@ Route::resource('courses', CursoController::class);
 
 Route::view('nosotros', 'nosotros')->name('nosotros');
 
-Route::get('contact', function(){
-    $email = new contactanosMailable;
+Route::get('contact', [ContactanosController::class, 'index'])->name('contactanos.index');
 
-    Mail::to('rojasgabriela901@gmail.com')->send($email);
-    return "Mensaje enviado";
-});
+//route to save the form of the contact us
+Route::post('contact', [ContactanosController::class, 'store'])->name('contactanos.store');
 
 
