@@ -21,26 +21,26 @@ class CursoController extends Controller
     }
 
     public function store(StoreCourse $request){
-        //to see what is inside of the form  return $request->all();
-        //vqlidation for the form so the user cannot send null fields.
+        //to see what is inscoursee of the form  return $request->all();
+        //vqlcourseation for the form so the user cannot send null fields.
         
 
         $course = Course::create($request->all());
 
-        //we send the id through $course  and laravel understands it as $course->id
+        //we send the course through $course  and laravel understands it as $course->course
         return redirect()->route('courses.show', $course);
     }
 
-    public function show( $id){
-        $course = Course::find($id);
+    public function show( $course){
+        $course = Course::find($course);
         return view('Courses.Show', compact('course'));
         //compact returns: ['var' => $var]
     }
 
-    //id is a variable that contains all the course data 
-    public function edit(Course $id){
+    //course is a variable that contains all the course data 
+    public function edit(Course $course){
         //compact sends the course data:
-       return view('Courses.edit', compact('id'));
+       return view('Courses.edit', compact('course'));
     }
 
     public function update(Course $course, Request $request){
