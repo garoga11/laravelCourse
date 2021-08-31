@@ -12,6 +12,7 @@
 </head>
 <body>
     <!--header-->
+    @include('Layouts.partials.header')
     <!--nav-->
     @yield('content')
 
