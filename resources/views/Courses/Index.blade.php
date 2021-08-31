@@ -1,6 +1,6 @@
 @extends('Layouts.plantilla')
 
-@section('title', 'Index')
+@section('title', 'Contactanos')
 
 @section('content')
 
@@ -17,5 +17,8 @@
 </ul>
 
 {{$courses->links()}}
+
+
+
 
 @endsection
