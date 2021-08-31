@@ -55,4 +55,8 @@ class CursoController extends Controller
 
         return redirect()->route('courses.show', $course);
     }
+
+    public function destroy(Course $course){
+        $course->delete();
+    }
 }
